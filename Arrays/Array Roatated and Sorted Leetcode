@@ -1,0 +1,115 @@
+Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.
+
+There may be duplicates in the original array.
+
+Note: An array A rotated by x positions results in an array B of the same length such that A[i] == B[(i+x) % A.length], where % is the modulo operation.
+
+ 
+
+Example 1:
+
+Input: nums = [3,4,5,1,2]
+Output: true
+Explanation: [1,2,3,4,5] is the original sorted array.
+You can rotate the array by x = 3 positions to begin on the the element of value 3: [3,4,5,1,2].
+
+
+CODE :::
+
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+       
+       /* int mini = INT_MAX;
+
+        int minindex = -1;
+        bool ans1 = true;
+        bool ans2 = true;
+        bool ans3 = true;
+         int n = nums.size();
+        for(int i =0 ; i<nums.size() ; i++){
+            
+            if(nums[i] < mini){
+                mini = nums[i];
+                minindex = i;
+            }
+        
+            
+            
+        }
+        if(minindex == 0){
+            
+            
+            for(int i=0 ; i< n-1 ; i++){
+            
+            if(nums[i] > nums[i+1]){
+                ans3 = false;
+                break;
+                
+            }
+            }
+            
+            return ans3;
+            
+        }
+        
+            
+            else{
+            
+        for(int i=1 ; i< minindex ; i++){
+            
+            if(nums[i] < nums[i-1]){
+                ans1 = false;
+                break;
+            }
+            
+            
+        }
+        
+        for(int i = minindex +1 ; i< nums.size()  ; i++){
+             if(nums[i] < nums[i-1] ){
+                ans2 = false;
+                break;
+            }
+            
+            
+        }
+        
+       
+        return ans1 && ans2 && (nums[n-1] <= nums[0]);
+    }
+    
+    // This approach is slightly wrong
+    */
+    
+        
+        
+        // correct approach
+        
+        int n = nums.size();
+        
+        
+        int count =0;
+        
+        for(int i= 1 ; i< n ; i++){
+            
+            if(nums[i-1] > nums[i]){
+                count ++;
+            }
+            
+            
+        }
+        
+        // We need to check last element and 1st element 
+        // We can also use modulus property
+          //if(nums[i-1] > nums[i%n])
+        // Or
+       if(nums[n-1] > nums[0]){
+            count ++;
+        }
+        
+        
+        return count<=1;
+    }   
+};

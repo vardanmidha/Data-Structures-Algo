@@ -1,0 +1,59 @@
+
+/// Explanation on notebook
+
+
+
+
+class Solution{
+    public:
+    int lenOfLongSubarr(int arr[],  int n, int k) 
+    { 
+        // Complete the function
+        
+        
+        
+        unordered_map<int , int> map;
+        
+        
+        int sum = 0;
+        int maxi =0;
+        // map[0] = -1 because if k =0 given for that condition , we are storing 0 sum at index -1.        
+        map[0] = -1;
+        for(int i=0 ; i< n ; i++){
+            
+            
+            sum += arr[i];
+            
+            /////
+            // It would work for either K=0 , Or any K = Any other integer..
+            if(map.find(sum-k)!=map.end()){
+                
+                
+                maxi = max(maxi , i - map[sum-k]);
+                
+            }
+            
+            /////// Used the below condition to find longest subarray , so if same sum appears then it would store the index 
+            ///of the sum which is appearing first in the array.
+            
+            if(map.find(sum) == map.end()){
+                map[sum] = i;
+            }
+            
+            
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        
+        return maxi;
+        
+    } 
+
+};
