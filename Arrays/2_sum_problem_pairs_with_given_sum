@@ -2,7 +2,8 @@ Given two unsorted arrays A of size N and B of size M of distinct elements, the 
 
  
 
-Example 1:
+
+Exaample 1:
 
 Input:
 A[] = {1, 2, 4, 5, 7}
